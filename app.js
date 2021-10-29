@@ -5,6 +5,9 @@ window.onload = () => {
 
     searchBtn.addEventListener('click', async (e) => {
         const searchVal = searchInput.value;
+
+        resultDiv.innerHTML = ""
+
         let response;
         if (searchVal.length == 0) {
             response = await fetch("/superheroes.php");
@@ -14,6 +17,18 @@ window.onload = () => {
             const jsonResponse = await response.json();
             const hero = jsonResponse[0];
             console.log(hero);
+            const aliasNode = document.createElement("h3")
+            const nameNode = document.createElement("h4");
+            const bioNode = document.createElement("p")
+
+
+            aliasNode.innerHTML = hero.alias;
+            nameNode.innerHTML = hero.name;
+            bioNode.innerHTML = hero.biography;
+
+            resultDiv.appendChild(aliasNode);
+            resultDiv.appendChild(nameNode);
+            resultDiv.appendChild(bioNode);
         }
 
     })

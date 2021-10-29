@@ -1,0 +1,45 @@
+body
+{
+    margin:0;
+    padding: 0;
+    background-color: rgb(240, 240, 240);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.upper-case
+{
+    text-transform: uppercase;
+}
+
+header h1
+{
+    margin: 0;
+    color: white;
+}
+
+header
+{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(80, 139, 179);
+}
+
+hr
+{
+    border-color: gray;
+}
+
+.container
+{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.wrapper
+{
+    width: 80%;
+    border:1px solid red;
+}

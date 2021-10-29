@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
     <title>Lab 4</title>
 </head>
+
 <body>
-    <div>
-        <form onsubmit="return false">
-            <input type="text" id="search-input"/>
-            <button id="search-btn"> Submit </button>
-        </form>
-    </div>
-    <div>
-        <div id="result"></div>
+    <header>
+        <h1 class="upper-case"> Avender Character Search </h1>
+    </header>
+    <div class="container">
+        <div class="wrapper">
+            <form onsubmit="return false">
+                <input type="text" id="search-input" />
+                <button id="search-btn"> Submit </button>
+            </form>
+            <h1 class="upper-case">
+                Result
+            </h1>
+            <hr/>
+            <div>
+                <div id="result"></div>
+            </div>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>
+
 </html>

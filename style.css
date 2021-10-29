@@ -40,6 +40,36 @@ hr
 
 .wrapper
 {
-    width: 80%;
-    border:1px solid red;
+    width: 870px;
+}
+
+form
+{
+    display: flex;
+    align-items: center;
+}
+
+form input
+{
+    height: 45px;
+    width: 760px;
+    font-size: 20px;
+    border: none;
+    box-shadow: 2px 2px 5px grey;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    margin-right: 5px;
+}
+
+form button
+{
+    width: 85px;
+    height: 55px;
+    border: none;
+    background-color: red;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px grey;
 }

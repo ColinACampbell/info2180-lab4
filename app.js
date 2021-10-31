@@ -4,7 +4,7 @@ window.onload = () => {
     const resultDiv = document.getElementById('result');
 
     searchBtn.addEventListener('click', async (e) => {
-        const searchVal = searchInput.value;
+        let searchVal = searchInput.value;
 
         resultDiv.innerHTML = ""
 
@@ -13,6 +13,7 @@ window.onload = () => {
             response = await fetch("/superheroes.php");
             resultDiv.innerHTML = await response.text()
         } else {
+            searchVal = sanitizeString(searchVal); 
             response = await fetch(`/superheroes.php?alias=${searchVal}`)
             const jsonResponse = await response.json();
             const hero = jsonResponse[0];
@@ -32,4 +33,9 @@ window.onload = () => {
         }
 
     })
+}
+
+function sanitizeString(str){
+    str = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
+    return str.trim();
 }

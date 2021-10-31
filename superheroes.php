@@ -65,9 +65,10 @@ $superheroes = [
 
 $hasRequestForSpecific = false;
 $temp_superheroes = [];
+// TODO sanitize the input
 if (isset($_GET['alias'])) {
     // Search for the super hero
-    $alias = $_GET['alias'];
+    $alias = filter_var($_GET['alias'], FILTER_SANITIZE_STRING);
     $hasRequestForSpecific = true;
     foreach ($superheroes as $superhero) {
         if ($alias === $superhero['alias']) {
@@ -75,7 +76,6 @@ if (isset($_GET['alias'])) {
             break;
         }
     }
-    //
 } else {
     $temp_superheroes = $superheroes;
 }

@@ -13,29 +13,36 @@ window.onload = () => {
             response = await fetch("/superheroes.php");
             resultDiv.innerHTML = await response.text()
         } else {
-            searchVal = sanitizeString(searchVal); 
+            searchVal = sanitizeString(searchVal);
             response = await fetch(`/superheroes.php?alias=${searchVal}`)
             const jsonResponse = await response.json();
             const hero = jsonResponse[0];
-            console.log(hero);
-            const aliasNode = document.createElement("h3")
-            const nameNode = document.createElement("h4");
-            const bioNode = document.createElement("p")
 
+            if (hero === undefined) {
+                const warning = document.createElement("h2");
+                warning.style.color = "red";
+                warning.style.textTransform = "uppercase"
+                warning.innerHTML = "Super Hero Not Found";
+                resultDiv.append(warning);
+            } else {
+                const aliasNode = document.createElement("h3")
+                const nameNode = document.createElement("h4");
+                const bioNode = document.createElement("p")
 
-            aliasNode.innerHTML = hero.alias;
-            nameNode.innerHTML = hero.name;
-            bioNode.innerHTML = hero.biography;
+                aliasNode.innerHTML = hero.alias;
+                nameNode.innerHTML = hero.name;
+                bioNode.innerHTML = hero.biography;
 
-            resultDiv.appendChild(aliasNode);
-            resultDiv.appendChild(nameNode);
-            resultDiv.appendChild(bioNode);
+                resultDiv.appendChild(aliasNode);
+                resultDiv.appendChild(nameNode);
+                resultDiv.appendChild(bioNode);
+            }
         }
 
     })
 }
 
-function sanitizeString(str){
-    str = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
+function sanitizeString(str) {
+    str = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim, "");
     return str.trim();
 }
